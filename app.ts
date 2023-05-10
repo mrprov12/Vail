@@ -1,9 +1,8 @@
-const express = require('express');
-const axios = require('axios');
-const swaggerJsdoc = require("swagger-jsdoc");
-const swaggerUi = require("swagger-ui-express");
+import express from 'express';
+import swaggerJsdoc from "swagger-jsdoc";
+import swaggerUi from "swagger-ui-express";
 
-const ping = require('./routes/ping');
+import ping from './routes/ping';
 
 const PORT = 30000;
 
@@ -20,7 +19,7 @@ app.get("/", function (req, res) {
 });
 
 
-const options = {
+const options: swaggerJsdoc.Options = {
     definition: {
       openapi: "3.0.0",
       info: {
@@ -47,6 +46,7 @@ const options = {
   };
   
   const specs = swaggerJsdoc(options);
+
   app.use(
     "/api-docs",
     swaggerUi.serve,
@@ -56,3 +56,5 @@ const options = {
 app.listen(PORT, function () {
     console.log(`Server is running on localhost:${PORT}`);
 });
+
+export default app;
