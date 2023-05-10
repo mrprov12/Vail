@@ -4,7 +4,8 @@
   "description": "Vail Take Home",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon ./app.js"
+    "start": "NODE_ENV=production node ./app.js",
+    "dev": "NODE_ENV=development nodemon ./app.js"
   },
   "author": "Meagan Provencher",
   "license": "ISC",
